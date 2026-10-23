@@ -1,0 +1,15 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-atlas-local:latest
+    container_name: mongodb-learning-lab
+    ports:
+      - "27017:27017"
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: labuser
+      MONGODB_INITDB_ROOT_PASSWORD: labpassword
+    volumes:
+      - parcelflow-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  parcelflow-data:
